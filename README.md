@@ -18,7 +18,7 @@ Os scripts não precisam de `sudo` para o uso normal. Evite rodar com `sudo`, po
 Entre na pasta do projeto:
 
 ```bash
-cd /Volumes/SanDisk/clean-script
+cd /clean-script
 ```
 
 Execute um script com `bash`:
@@ -45,11 +45,11 @@ bash nome-do-script.sh --help
 
 Alguns scripts compartilham estas opções:
 
-| Opção | O que faz |
-| --- | --- |
-| `--dry-run` | Mostra o que seria removido, sem apagar nada. |
-| `--yes` | Confirma automaticamente as ações que normalmente perguntariam antes. |
-| `-h`, `--help` | Mostra a ajuda do script. |
+| Opção          | O que faz                                                             |
+| -------------- | --------------------------------------------------------------------- |
+| `--dry-run`    | Mostra o que seria removido, sem apagar nada.                         |
+| `--yes`        | Confirma automaticamente as ações que normalmente perguntariam antes. |
+| `-h`, `--help` | Mostra a ajuda do script.                                             |
 
 ## Comandos disponíveis
 
@@ -63,10 +63,10 @@ bash mac-space-report.sh
 
 Opções:
 
-| Opção | O que faz |
-| --- | --- |
-| `--limit N` | Define quantos itens aparecem por seção. Padrão: `25`. |
-| `--roots PATHS` | Define as pastas analisadas, separadas por vírgula. |
+| Opção           | O que faz                                              |
+| --------------- | ------------------------------------------------------ |
+| `--limit N`     | Define quantos itens aparecem por seção. Padrão: `25`. |
+| `--roots PATHS` | Define as pastas analisadas, separadas por vírgula.    |
 
 Exemplos:
 
@@ -85,10 +85,10 @@ bash clean-system-safe.sh --dry-run
 
 Opções:
 
-| Opção | O que faz |
-| --- | --- |
-| `--days N` | Remove apenas itens antigos com mais de `N` dias onde aplicável. Padrão: `30`. |
-| `--empty-trash` | Esvazia `~/.Trash` após confirmação. |
+| Opção           | O que faz                                                                      |
+| --------------- | ------------------------------------------------------------------------------ |
+| `--days N`      | Remove apenas itens antigos com mais de `N` dias onde aplicável. Padrão: `30`. |
+| `--empty-trash` | Esvazia `~/.Trash` após confirmação.                                           |
 
 Exemplos:
 
@@ -108,8 +108,8 @@ bash clean-browser-caches.sh --dry-run
 
 Opções:
 
-| Opção | O que faz |
-| --- | --- |
+| Opção          | O que faz                                              |
+| -------------- | ------------------------------------------------------ |
 | `--close-apps` | Tenta fechar os navegadores antes de limpar os caches. |
 
 Exemplos:
@@ -129,9 +129,9 @@ bash clean-dev-caches.sh --dry-run
 
 Opções:
 
-| Opção | O que faz |
-| --- | --- |
-| `--deep` | Inclui caches maiores e stores de pacotes. |
+| Opção           | O que faz                                          |
+| --------------- | -------------------------------------------------- |
+| `--deep`        | Inclui caches maiores e stores de pacotes.         |
 | `--with-docker` | Também executa uma limpeza conservadora do Docker. |
 
 Exemplos:
@@ -152,15 +152,15 @@ bash clean-mobile-caches.sh --dry-run
 
 Opções:
 
-| Opção | O que faz |
-| --- | --- |
-| `--deep` | Inclui caches pesados como npm, Yarn, pnpm, CocoaPods, SwiftPM e Gradle wrapper. |
-| `--erase-ios-sims` | Apaga os dados de todos os simuladores iOS. |
-| `--delete-avds` | Apaga todos os AVDs em `~/.android/avd`. |
-| `--delete-xcode-archives` | Apaga archives exportados do Xcode. Não é cache. |
-| `--delete-device-support` | Apaga suportes de devices iOS baixados pelo Xcode. |
-| `--projects PATHS` | Limpa a pasta `android/` de outros projetos, separados por vírgula. |
-| `--empty-trash` | Esvazia a lixeira do macOS. |
+| Opção                     | O que faz                                                                        |
+| ------------------------- | -------------------------------------------------------------------------------- |
+| `--deep`                  | Inclui caches pesados como npm, Yarn, pnpm, CocoaPods, SwiftPM e Gradle wrapper. |
+| `--erase-ios-sims`        | Apaga os dados de todos os simuladores iOS.                                      |
+| `--delete-avds`           | Apaga todos os AVDs em `~/.android/avd`.                                         |
+| `--delete-xcode-archives` | Apaga archives exportados do Xcode. Não é cache.                                 |
+| `--delete-device-support` | Apaga suportes de devices iOS baixados pelo Xcode.                               |
+| `--projects PATHS`        | Limpa a pasta `android/` de outros projetos, separados por vírgula.              |
+| `--empty-trash`           | Esvazia a lixeira do macOS.                                                      |
 
 Exemplos:
 
@@ -183,10 +183,10 @@ bash clean-ios-backups.sh
 
 Opções:
 
-| Opção | O que faz |
-| --- | --- |
+| Opção                   | O que faz                           |
+| ----------------------- | ----------------------------------- |
 | `--delete-older-than N` | Apaga backups com mais de `N` dias. |
-| `--delete-all` | Apaga todos os backups locais. |
+| `--delete-all`          | Apaga todos os backups locais.      |
 
 Exemplos:
 
@@ -206,10 +206,10 @@ bash clean-docker.sh --dry-run
 
 Opções:
 
-| Opção | O que faz |
-| --- | --- |
-| `--aggressive` | Remove todas as imagens não usadas, não apenas dangling. |
-| `--volumes` | Inclui volumes Docker não usados. Pode apagar bancos e dados locais. |
+| Opção          | O que faz                                                            |
+| -------------- | -------------------------------------------------------------------- |
+| `--aggressive` | Remove todas as imagens não usadas, não apenas dangling.             |
+| `--volumes`    | Inclui volumes Docker não usados. Pode apagar bancos e dados locais. |
 
 Exemplos:
 
@@ -258,79 +258,3 @@ Normalmente você não executa este arquivo diretamente.
    bash clean-mobile-caches.sh --dry-run --deep
    bash clean-docker.sh --dry-run --aggressive
    ```
-
-## Publicar este projeto no GitHub
-
-Este diretório ainda pode ser publicado como um repositório Git normal.
-
-1. Entre na pasta:
-
-   ```bash
-   cd /Volumes/SanDisk/clean-script
-   ```
-
-2. Crie um `.gitignore` para não versionar arquivos do macOS:
-
-   ```bash
-   printf ".DS_Store\n" > .gitignore
-   ```
-
-3. Inicie o repositório:
-
-   ```bash
-   git init
-   ```
-
-4. Confira os arquivos que serão versionados:
-
-   ```bash
-   git status
-   ```
-
-5. Adicione os arquivos:
-
-   ```bash
-   git add README.md .gitignore *.sh
-   ```
-
-6. Faça o primeiro commit:
-
-   ```bash
-   git commit -m "Adiciona scripts de limpeza para macOS"
-   ```
-
-7. Crie um repositório vazio no GitHub.
-
-   - Não marque para criar README, `.gitignore` ou licença no GitHub, porque o projeto local já terá esses arquivos.
-   - Copie a URL do repositório. Exemplo: `https://github.com/SEU_USUARIO/NOME_DO_REPO.git`.
-
-8. Renomeie a branch principal para `main`:
-
-   ```bash
-   git branch -M main
-   ```
-
-9. Configure o remoto:
-
-   ```bash
-   git remote add origin https://github.com/SEU_USUARIO/NOME_DO_REPO.git
-   ```
-
-10. Envie para o GitHub:
-
-    ```bash
-    git push -u origin main
-    ```
-
-Se você já tiver criado o remoto `origin` antes, troque a URL com:
-
-```bash
-git remote set-url origin https://github.com/SEU_USUARIO/NOME_DO_REPO.git
-```
-
-Depois confirme se ficou tudo certo:
-
-```bash
-git status
-git remote -v
-```
