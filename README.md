@@ -144,7 +144,7 @@ bash clean-dev-caches.sh --yes --with-docker
 
 ### `clean-mobile-caches.sh`
 
-Limpa caches de builds iOS/Android/Metro e caches relacionados a desenvolvimento mobile.
+Limpa caches de builds iOS/Android/Metro/Maestro e caches relacionados a desenvolvimento mobile.
 
 ```bash
 bash clean-mobile-caches.sh --dry-run

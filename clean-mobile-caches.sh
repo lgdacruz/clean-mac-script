@@ -29,7 +29,7 @@ DRY_LIST=()
 
 usage() {
   cat <<'EOF'
-Limpa caches de build iOS/Android/Metro em macOS.
+Limpa caches de build iOS/Android/Metro/Maestro em macOS.
 
 Opcoes:
   --yes                nao pede confirmacao
@@ -326,14 +326,18 @@ rm_glob "${TMPDIR:-/tmp}" "react-*"
 rm_glob "${TMPDIR:-/tmp}" "haste-map-*"
 rm_safe "$HOME/Library/Metro"
 
-# 4) AVDs
+# 4) Maestro
+echo "-- Maestro"
+rm_safe "$HOME/.maestro/tmp"
+
+# 5) AVDs
 if [[ $DELETE_AVDS -eq 1 ]]; then
   if confirm "Remover TODOS os AVDs em ~/.android/avd?"; then
     rm_safe "$HOME/.android/avd"
   fi
 fi
 
-# 5) Package managers e CocoaPods
+# 6) Package managers e CocoaPods
 if [[ $DEEP -eq 1 ]]; then
   echo "-- Caches de package managers"
   # npm
@@ -367,12 +371,12 @@ if [[ $DEEP -eq 1 ]]; then
   rm_safe "$HOME/.dartServer"
 fi
 
-# 6) Lixeira (opcional)
+# 7) Lixeira (opcional)
 if [[ $EMPTY_TRASH -eq 1 ]]; then
   empty_trash
 fi
 
-# 7) Relatório
+# 8) Relatório
 sz=$(hr "$bytes_freed"); u=$(unit "$bytes_freed")
 if [[ $DRYRUN -eq 1 ]]; then
   highlight "≈ Espaço potencial liberado: ${sz} ${u}"
